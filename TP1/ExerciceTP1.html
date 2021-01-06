@@ -59,7 +59,7 @@
 			if(window.DeviceOrientationEvent) {
 				window.addEventListener("deviceorientation", process, false);
 			} else {
-				console.log("Le navigateur ne supporte pas l'orientation");
+				document.getElementById('infomouvement').innerHTML += '<p class="warning">Votre navigateur ne semble pas supporter <code>deviceorientation</code></p>';
 			}
 		</script>
 	</body>
