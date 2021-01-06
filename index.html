@@ -49,9 +49,9 @@
 			
 			window.addEventListener('devicemotion', function(event) {
 				var infomouv = "Position déterminée :\n";
-				infomouv += "Alpha : "+ event.acceleration.x +"\n";
-				infomouv += "Beta : "+ event.acceleration.y +"\n";
-				infomouv += "Gamma : "+ event.acceleration.z +"\n";
+				infomouv += "Alpha : "+ event.acceleration.z +"\n";
+				infomouv += "Beta : "+ event.acceleration.x +"\n";
+				infomouv += "Gamma : "+ event.acceleration.y +"\n";
 				document.getElementById("infomouvement").innerHTML = infomouv;
 				console.log(event.acceleration.x + ' m/s2');
 			});
