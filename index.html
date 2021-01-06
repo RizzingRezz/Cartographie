@@ -12,11 +12,13 @@
 		<script>
 			function maPosition(position) 
 			{
+				var timestamp = Math.round(new Date().getTime() / 1000);
 				var infopos = "Position déterminée :\n";
 				infopos += "Latitude : "+position.coords.latitude +"\n";
 				infopos += "Longitude: "+position.coords.longitude+"\n";
 				infopos += "Altitude : "+position.coords.altitude +"\n";
 				infopos += "Vitesse  : "+position.coords.speed +"\n";
+				infopos += "TimeStamp  : "+timestamp +"\n";
 				document.getElementById("infoposition").innerHTML = infopos;
 			}
 
@@ -26,11 +28,13 @@
 			// Fonction de callback en cas de succès
 			function surveillePosition(position) 
 			{
+				var timestamp = Math.round(new Date().getTime() / 1000);
 				var infopos = "Position déterminée :\n";
 				infopos += "Latitude : "+position.coords.latitude +"\n";
 				infopos += "Longitude: "+position.coords.longitude+"\n";
 				infopos += "Altitude : "+position.coords.altitude +"\n";
 				infopos += "Vitesse  : "+position.coords.speed +"\n";
+				infopos += "TimeStamp  : "+timestamp +"\n";
 				document.getElementById("informationposition").innerHTML = infopos;
 			}
 
