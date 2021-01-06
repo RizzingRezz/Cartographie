@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>HTML5 : Géolocalisation</title>
+	</head>
+	<body>
+
+		<h2>Exercice 2</h2>
+		<div id="infoposition"></div>
+		<div id="informationposition"></div>
+		<h2>Exercice 3</h2>
+		<div id="infomouvement"></div>
+		<script>
+			function maPosition(position) 
+			{
+				var infopos = "<h4>Position déterminée :</h4>";
+				infopos += "<p>Latitude : "+position.coords.latitude +"</p>";
+				infopos += "<p>Longitude: "+position.coords.longitude+"</p>";
+				infopos += "<p>Altitude : "+position.coords.altitude +"</p>";
+				infopos += "<p>Précision : "+position.coords.accuracy +"</p>";
+				infopos += "<p>Vitesse  : "+position.coords.speed +"</p>";
+				infopos += "<p>TimeStamp  : "+new Date(position.timestamp) +"</p>";
+				document.getElementById("infoposition").innerHTML = infopos;
+			}
+
+			if(navigator.geolocation)
+				navigator.geolocation.getCurrentPosition(maPosition);
+				
+			// Fonction de callback en cas de succès
+			function surveillePosition(position) 
+			{
+				var infopos = "<h4>Position surveillé :</h4>";
+				infopos += "<p>Latitude : "+position.coords.latitude +"</p>";
+				infopos += "<p>Longitude: "+position.coords.longitude+"</p>";
+				infopos += "<p>Altitude : "+position.coords.altitude +"</p>";
+				infopos += "<p>Précision : "+position.coords.accuracy +"</p>";
+				infopos += "<p>Vitesse  : "+position.coords.speed +"</p>";
+				infopos += "<p>TimeStamp  : "+new Date(position.timestamp) +"</p>";
+				document.getElementById("informationposition").innerHTML = infopos;
+			}
+
+			// On déclare la variable survId afin de pouvoir par la suite annuler le suivi de la position
+			var survId = navigator.geolocation.watchPosition(surveillePosition);
+			// Annule le suivi de la position si nécessaire.
+			//navigator.geolocation.clearWatch(survId);
+
+			
+			function process(event) 
+			{
+				var alpha = event.alpha;
+				var beta = event.beta;
+				var gamma = event.gamma;
+				var x = event.accelerationIncludingGravity.x;
+				var y = event.accelerationIncludingGravity.y;
+				var z = event.accelerationIncludingGravity.z;
+				document.getElementById("infomouvement").innerHTML = "<ul><li>Alpha : " + alpha + "</li><li>Beta : " + beta + "</li><li>Gamma : " + gamma + "</li>"+"<li>X : " + x + "</li><li>Y : " + y + "</li><li>Z : " + z + "</li></ul>"; 
+			}
+			if(window.DeviceOrientationEvent) {
+				window.addEventListener("deviceorientation", process, false);
+			} else {
+				console.log("Le navigateur ne supporte pas l'orientation");
+			}
+		</script>
+	</body>
+</html>
