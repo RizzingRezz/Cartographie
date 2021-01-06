@@ -9,7 +9,6 @@
 		<h2>Exercice 2</h2>
 		<div id="infoposition"></div>
 		<div id="informationposition"></div>
-		<button Click="stop()">Arreter le suivi</button>
 		<h2>Exercice 3</h2>
 		<div id="infomouvement"></div>
 		<script>
@@ -44,12 +43,8 @@
 			// On déclare la variable survId afin de pouvoir par la suite annuler le suivi de la position
 			var survId = navigator.geolocation.watchPosition(surveillePosition);
 			// Annule le suivi de la position si nécessaire.
-			var ok = function(){
-				function stop(){
-					navigator.geolocation.clearWatch(survId);
-				}
-			}
-			window.onload = ok;
+			//navigator.geolocation.clearWatch(survId);
+
 			
 			function handleOrientation(event) 
 			{
