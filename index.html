@@ -45,8 +45,6 @@
 			// Annule le suivi de la position si nécessaire.
 			//navigator.geolocation.clearWatch(survId);
 			
-			window.addEventListener("deviceorientation", handleOrientation, true);
-			
 			function handleOrientation(event) 
 			{
 				var alpha    = event.alpha;
@@ -59,6 +57,9 @@
 				infomouv += "Gamma : "+ event.gamma +"\n";
 				document.getElementById("infomouvement").innerHTML = infomouv;
 			}
+			
+			if(window.DeviceOrientationEvent)
+				window.addEventListener("deviceorientation", handleOrientation, true);
 		</script>
 	</body>
 </html>
