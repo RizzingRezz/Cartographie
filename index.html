@@ -15,13 +15,13 @@
 			function maPosition(position) 
 			{
 				var timestamp = Math.round(new Date().getTime() / 1000);
-				var infopos = "Position déterminée :\n";
-				infopos += "Latitude : "+position.coords.latitude +"\n";
-				infopos += "Longitude: "+position.coords.longitude+"\n";
-				infopos += "Altitude : "+position.coords.altitude +"\n";
-				infopos += "Précision : "+position.coords.accuracy +"\n";
-				infopos += "Vitesse  : "+position.coords.speed +"\n";
-				infopos += "TimeStamp  : "+timestamp +"\n";
+				var infopos = "<p>Position déterminée :</p>";
+				infopos += "<p>Latitude : "+position.coords.latitude +"</p>";
+				infopos += "<p>Longitude: "+position.coords.longitude+"</p>";
+				infopos += "<p>Altitude : "+position.coords.altitude +"</p>";
+				infopos += "<p>Précision : "+position.coords.accuracy +"</p>";
+				infopos += "<p>Vitesse  : "+position.coords.speed +"</p>";
+				infopos += "<p>TimeStamp  : "+timestamp +"</p>";
 				document.getElementById("infoposition").innerHTML = infopos;
 			}
 
@@ -32,13 +32,13 @@
 			function surveillePosition(position) 
 			{
 				var timestamp = Math.round(new Date().getTime() / 1000);
-				var infopos = "Position déterminée :\n";
-				infopos += "Latitude : "+position.coords.latitude +"\n";
-				infopos += "Longitude: "+position.coords.longitude+"\n";
-				infopos += "Altitude : "+position.coords.altitude +"\n";
-				infopos += "Précision : "+position.coords.accuracy +"\n";
-				infopos += "Vitesse  : "+position.coords.speed +"\n";
-				infopos += "TimeStamp  : "+timestamp +"\n";
+				var infopos = "<p>Position déterminée :</p>";
+				infopos += "<p>Latitude : "+position.coords.latitude +"</p>";
+				infopos += "<p>Longitude: "+position.coords.longitude+"</p>";
+				infopos += "<p>Altitude : "+position.coords.altitude +"</p>";
+				infopos += "<p>Précision : "+position.coords.accuracy +"</p>";
+				infopos += "<p>Vitesse  : "+position.coords.speed +"</p>";
+				infopos += "<p>TimeStamp  : "+timestamp +"</p>";
 				document.getElementById("informationposition").innerHTML = infopos;
 			}
 
