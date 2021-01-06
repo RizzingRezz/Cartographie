@@ -9,6 +9,7 @@
 		<!-- Un élément HTML pour recueillir l’affichage -->
 		<div id="infoposition"></div>
 		<div id="informationposition"></div>
+		<div id="infomouvement"></div>
 		<script>
 			function maPosition(position) 
 			{
@@ -42,6 +43,21 @@
 			var survId = navigator.geolocation.watchPosition(surveillePosition);
 			// Annule le suivi de la position si nécessaire.
 			//navigator.geolocation.clearWatch(survId);
+			
+			window.addEventListener("deviceorientation", handleOrientation, true);
+			
+			function handleOrientation(event) 
+			{
+				var alpha    = event.alpha;
+				var beta     = event.beta;
+				var gamma    = event.gamma;
+				var infomouv = "Position déterminée :\n";
+				infomouv += "Absolute : "+ event.absolute +"\n";
+				infomouv += "Alpha : "+ event.alpha +"\n";
+				infomouv += "Beta : "+ event.beta +"\n";
+				infomouv += "Gamma : "+ event.gamma +"\n";
+				document.getElementById("infomouvement").innerHTML = infomouv;
+			}
 		</script>
 	</body>
 </html>
