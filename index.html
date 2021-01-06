@@ -46,20 +46,16 @@
 			//navigator.geolocation.clearWatch(survId);
 
 			
-			function handleOrientation(event) 
-			{
-				var alpha    = event.alpha;
-				var beta     = event.beta;
-				var gamma    = event.gamma;
+			
+			window.addEventListener('devicemotion', function(event) {
 				var infomouv = "Position déterminée :\n";
-				infomouv += "Absolute : "+ absolute +"\n";
-				infomouv += "Alpha : "+ alpha +"\n";
-				infomouv += "Beta : "+ beta +"\n";
-				infomouv += "Gamma : "+ gamma +"\n";
+				infomouv += "Alpha : "+ event.acceleration.x +"\n";
+				infomouv += "Beta : "+ event.acceleration.y +"\n";
+				infomouv += "Gamma : "+ event.acceleration.z +"\n";
 				document.getElementById("infomouvement").innerHTML = infomouv;
-			}
-			if(window.DeviceOrientationEvent)
-				window.addEventListener("deviceorientation", handleOrientation, true);
+				console.log(event.acceleration.x + ' m/s2');
+			});
+			
 		</script>
 	</body>
 </html>
