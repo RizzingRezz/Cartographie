@@ -47,14 +47,18 @@
 
 			
 			
-			window.addEventListener('devicemotion', function(event) {
-				var infomouv = "Position déterminée :\n";
-				infomouv += "Alpha : "+ event.acceleration.z +"\n";
-				infomouv += "Beta : "+ event.acceleration.x +"\n";
-				infomouv += "Gamma : "+ event.acceleration.y +"\n";
-				document.getElementById("infomouvement").innerHTML = infomouv;
-				console.log(event.acceleration.x + ' m/s2');
-			});
+			function process(event) 
+			{
+			  var alpha = event.alpha;
+			  var beta = event.beta;
+			  var gamma = event.gamma;
+			  document.getElementById("infomouvement").innerHTML = "<ul><li>Alpha : " + alpha + "</li><li>Beta : " + beta + "</li><li>Gamma : " + gamma + "</li></ul>"; 
+			}
+			if(window.DeviceOrientationEvent) {
+				window.addEventListener("deviceorientation", process, false);
+			} else {
+				console.log("Le navigateur ne supporte pas l'orientation");
+			}
 			
 		</script>
 	</body>
