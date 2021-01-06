@@ -9,6 +9,7 @@
 		<h2>Exercice 2</h2>
 		<div id="infoposition"></div>
 		<div id="informationposition"></div>
+		<button Click="stop()">Arreter le suivi</button>
 		<h2>Exercice 3</h2>
 		<div id="infomouvement"></div>
 		<script>
@@ -43,7 +44,12 @@
 			// On déclare la variable survId afin de pouvoir par la suite annuler le suivi de la position
 			var survId = navigator.geolocation.watchPosition(surveillePosition);
 			// Annule le suivi de la position si nécessaire.
-			//navigator.geolocation.clearWatch(survId);
+			var ok = function(){
+				function stop(){
+					navigator.geolocation.clearWatch(survId);
+				}
+			}
+			window.onload = ok;
 			
 			function handleOrientation(event) 
 			{
@@ -51,13 +57,12 @@
 				var beta     = event.beta;
 				var gamma    = event.gamma;
 				var infomouv = "Position déterminée :\n";
-				infomouv += "Absolute : "+ event.absolute +"\n";
-				infomouv += "Alpha : "+ event.alpha +"\n";
-				infomouv += "Beta : "+ event.beta +"\n";
-				infomouv += "Gamma : "+ event.gamma +"\n";
+				infomouv += "Absolute : "+ absolute +"\n";
+				infomouv += "Alpha : "+ alpha +"\n";
+				infomouv += "Beta : "+ beta +"\n";
+				infomouv += "Gamma : "+ gamma +"\n";
 				document.getElementById("infomouvement").innerHTML = infomouv;
 			}
-			
 			if(window.DeviceOrientationEvent)
 				window.addEventListener("deviceorientation", handleOrientation, true);
 		</script>
