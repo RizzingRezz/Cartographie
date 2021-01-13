@@ -43,7 +43,7 @@
 				
 			if(navigator.geolocation)
 				navigator.geolocation.getCurrentPosition(maPosition);
-			var layer = new L.StamenTileLayer("toner");
+			var layer = new L.StamenTileLayer("terrain");
 			map.addLayer(layer);
 					
 			L.marker([43.7102, 7.2620]).addTo(map);
