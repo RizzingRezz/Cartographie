@@ -30,7 +30,7 @@
 					map.setView(new L.LatLng(latitude, longitude), 8);
 					var circle = L.circle([latitude, longitude], {
 						color: 'blue',
-						radius: 500
+						radius: acurracy
 					}).addTo(map).bindPopup("Vous êtes approximativement à " + acurracy + " mètres de ce point").openPopup();
 				}
 				
