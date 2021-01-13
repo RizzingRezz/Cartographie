@@ -18,29 +18,28 @@
 		<script>
 			var latitude;
 			var longitude;
+			var map = new L.Map("mapid", {
+				center: new L.LatLng(0, 0),
+				zoom: 9
+			});
 			function maPosition(position) 
 				{
 					latitude = position.coords.latitude;
 					longitude = position.coords.longitude;
-					var layer = new L.StamenTileLayer("toner");
-					var map = new L.Map("mapid", {
-						center: new L.LatLng(latitude, longitude),
-						zoom: 9
-					});
-					map.addLayer(layer);
-					
-					L.marker([43.7102, 7.2620]).addTo(map);
-					var polygon = L.polygon([
-						[32.259265, -64.857788],
-						[25.777634, -80.183716],
-						[18.448347, -66.104736]
-					],{ color: 'red', fillColor: '#f03'}).addTo(map);
+					map.setView(new L.LatLng(latitude, longitude), 8);
 				}
 				
 			if(navigator.geolocation)
 				navigator.geolocation.getCurrentPosition(maPosition);
-			
-			
+			var layer = new L.StamenTileLayer("toner");
+			map.addLayer(layer);
+					
+			L.marker([43.7102, 7.2620]).addTo(map);
+			var polygon = L.polygon([
+				[32.259265, -64.857788],
+				[25.777634, -80.183716],
+				[18.448347, -66.104736]
+			],{ color: 'red', fillColor: '#f03'}).addTo(map);
 		</script>
 	</body>
 </html>
