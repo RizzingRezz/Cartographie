@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+		<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+		<title>TP 2</title>
+		<style>#mapid { height: 500px; width: 500px; }</style>
+	</head>
+	<body>
+		
+		<div id="mapid"></div>
+		<script>
+			var latitude;
+			var longitude;
+			function maPosition(position) 
+				{
+					latitude = position.coords.latitude;
+					longitude = position.coords.longitude;
+					var layer = new L.StamenTileLayer("toner");
+					var map = new L.Map("mapid", {
+						center: new L.LatLng(latitude, longitude),
+						zoom: 9
+					});
+					map.addLayer(layer);
+					
+					L.marker([43.7102, 7.2620]).addTo(map)
+					var circle = L.circle([51.508, -0.11], {
+						color: 'red',
+						fillColor: '#f03',
+						fillOpacity: 0.5,
+						radius: 500
+					}).addTo(map);
+					var polygon = L.polygon([
+						[32.259265, -64.857788],
+						[25.777634, -80.183716],
+						[18.448347, -66.104736]
+					],{ color: 'red', fillColor: '#f03'}).addTo(map);
+				}
+				
+			if(navigator.geolocation)
+				navigator.geolocation.getCurrentPosition(maPosition);
+			
+			
+		</script>
+	</body>
+</html>
