@@ -9,12 +9,13 @@
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
 		<script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js"></script>
-		<title>TP 2</title>
-		<style>#mapid { height: 500px; width: 500px; }</style>
+		<title>TP2 | Leaflet</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<div id="mapid"></div>
-		<p id="distance"> </p>
+		<p>Longitude: <b id="longitude"></b><br> Latitude: <b id="latitude"></b></p>
+		<p>Distance de Marseille : <b id="distance"></b> m</p>
 		<script>
 			var latitude;
 			var longitude;
@@ -35,7 +36,9 @@
 					}).addTo(map).bindPopup("Vous êtes approximativement à " + acurracy + " mètres de ce point").openPopup();
 					var latlngMarseille = L.latLng(43.3, 5.4);
 					var latlngCurrentPosition = L.latLng(latitude, longitude);
-					document.getElementById("distance").innerHTML = "Vous êtes à " + latlngMarseille.distanceTo(latlngCurrentPosition) + "m de Marseille";
+					document.getElementById("longitude").innerHTML = longitude;
+					document.getElementById("latitude").innerHTML = latitude;
+					document.getElementById("distance").innerHTML = latlngMarseille.distanceTo(latlngCurrentPosition);
 				}
 				
 			if(navigator.geolocation)
