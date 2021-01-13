@@ -22,6 +22,8 @@
 				center: new L.LatLng(0, 0),
 				zoom: 9
 			});
+			var layer = new L.StamenTileLayer("toner");
+			map.addLayer(layer);
 			function maPosition(position) 
 				{
 					latitude = position.coords.latitude;
@@ -31,8 +33,6 @@
 				
 			if(navigator.geolocation)
 				navigator.geolocation.getCurrentPosition(maPosition);
-			var layer = new L.StamenTileLayer("toner");
-			map.addLayer(layer);
 					
 			L.marker([43.7102, 7.2620]).addTo(map);
 			var polygon = L.polygon([
