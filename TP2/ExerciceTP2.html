@@ -57,7 +57,7 @@
 				[32.259265, -64.857788],
 				[25.777634, -80.183716],
 				[18.448347, -66.104736]
-			],{ color: 'red', fillColor: '#f03'}).addTo(map);
+			],{ color: 'red', fillColor: '#f03'}).addTo(map).bindPopup('Triangle des Bermudes');
 			
 			const url="https://api-adresse.data.gouv.fr/search/?q=nice&type=street&limit=2";
 			$.getJSON(url, function(result)
@@ -67,8 +67,7 @@
 					
 				data.forEach(element => {
 					L.marker([element.geometry.coordinates[1], element.geometry.coordinates[0]]).addTo(map)
-					.bindPopup('Utilisation de GeoJson')
-					.openPopup();
+					.bindPopup('Utilisation de GeoJson');
 
 				});
 			});
