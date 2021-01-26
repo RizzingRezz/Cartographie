@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" name='viewport' content='width=device-width, user-scalable=no'/>
+		<style>
+            body{
+                margin:0;
+                overflow:hidden;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="container"></div>
+
+		<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+		<script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
+		<script type="text/javascript">
+		
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.SphereGeometry();
+			const material = new THREE.MeshPhongMaterial();
+			material.color.setHSL(0, 1, .5);  // red
+			material.flatShading = true;
+			const sphere = new THREE.Mesh( geometry, material );
+			scene.add( sphere );
+			
+			var loader = new THREE.GLTFLoader();
+			loader.load(
+				'scene.gltf',
+				function (gltf) {
+					mesh = gltf.scene;
+					mesh.position.set(2,0,0);
+					scene.add(mesh);
+				}
+			);
+
+			var light = new THREE.DirectionalLight( 0xffffff );
+			light.position.set( 1, 1, 1 ).normalize();
+			scene.add(light);
+			
+			var light2 = new THREE.DirectionalLight( 0xffffff );
+			light.position.set( 2, 2, 0 ).normalize();
+			scene.add(light2);
+			
+			camera.position.z = 5;
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+				
+				sphere.rotation.x += 0.01;
+				sphere.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
