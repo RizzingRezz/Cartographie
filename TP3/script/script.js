@@ -38,11 +38,18 @@ ctx.moveTo(100, 250);
 ctx.lineTo(250, 250);
 ctx.lineTo(175, 180);
 ctx.closePath();
-// the outline
 ctx.lineWidth = 10;
 ctx.strokeStyle = 'brown';
 ctx.stroke();
-
-// the fill color
 ctx.fillStyle = "red";
 ctx.fill();
+
+function changeFond()
+{
+	if( sky.style.fill ==='gray' )
+	{
+		sky.style.fill='blue'; 
+	}else{
+		sky.style.fill='gray';
+	}
+}
