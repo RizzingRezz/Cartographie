@@ -5,14 +5,14 @@ var img = document.getElementById("fond");
 ctx.drawImage(img,0,0);
 ctx.stroke();
 
-//soleil
+//sun
 ctx.fillStyle = "yellow"; 
 ctx.beginPath();
 ctx.arc(60,60,30,0,Math.PI*2,true);
 ctx.closePath();
 ctx.fill();
 
-//mur
+//wall
 ctx.fillStyle = "orange"; //red
 ctx.beginPath();
 ctx.rect(100, 250, 150, 200);
@@ -22,7 +22,7 @@ ctx.stroke()
 ctx.closePath();
 ctx.fill();
 
-//porte
+//door
 ctx.fillStyle = "#986100"; //red
 ctx.beginPath();
 ctx.rect(120, 300, 75, 100);
@@ -32,7 +32,7 @@ ctx.stroke()
 ctx.closePath();
 ctx.fill();
 
-//toit
+//roof
 ctx.beginPath();
 ctx.moveTo(100, 250);
 ctx.lineTo(250, 250);
@@ -44,9 +44,9 @@ ctx.stroke();
 ctx.fillStyle = "red";
 ctx.fill();
 
-function changeFond()
+function changeBackground()
 {
-	if( sky.style.fill ==='gray' )
+	if( sky.style.fill =='gray' )
 	{
 		sky.style.fill='blue'; 
 	}else{

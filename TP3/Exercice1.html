@@ -3,23 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TP3 | Canvas/SVG</title>
-		<style>#door:hover{fill:yellow;}</style>
+		<style>#door:hover{fill:yellow;}body{text-align:center;}</style>
 	</head>
 	<body>
+		<h1>Canvas 2D</h1>
 		<canvas id="myCanvas" width="600" height="400" style="border:1px solid #000000;"></canvas>
 		<div style="display:none;">
 			<img id="fond" src="montagne.jpg" alt="Montagne" width="600" height="400"><br>
 		</div><br>
+		<h1>SVG</h1>
 		<svg width="600" height="400">
+			<!-- Sky -->
 			<rect id="sky" x="0" y="0" width="600" height="300" stroke="brown" stroke-width="4" fill="blue" />
-			<circle onclick="changeFond()" cx="500" cy="100" r="50" stroke="green" stroke-width="4" fill="yellow" />
+			<circle onclick="changeBackground()" cx="500" cy="100" r="50" stroke="green" stroke-width="4" fill="yellow" />
+			<!-- Grass -->
 			<rect x="0" y="300" width="600" height="100" stroke="green" stroke-width="4" fill="lime" />
+			<!-- Mountains -->
 			<polygon points="150,50 210,300 90,300" stroke="brown" stroke-width="4" fill="#F4A460" />
 			<polygon points="240,70 300,300 180,300" stroke="brown" stroke-width="4" fill="#F4A460" />
 			<polygon points="350,90 410,300 300,300" stroke="brown" stroke-width="4" fill="#F4A460" />
+			<!-- House -->
 			<rect x="110" y="225" width="130" height="150" stroke="brown" stroke-width="3" fill="orange" />
 			<polygon points="110,225 240,225 180,150" stroke="brown" stroke-width="4" fill="red" />
 			<rect id="door" x="130" y="275" width="50" height="100" stroke="brown" stroke-width="3" fill="brown" />
+			
 		</svg>
 		<script type ="text/javascript" src="script/script.js "></script>
 	</body>
