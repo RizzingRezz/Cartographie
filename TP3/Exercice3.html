@@ -25,15 +25,11 @@
 			document.body.appendChild( renderer.domElement );
 			
 			//Création geometry and material Terre
-			var sphereGeometry = new THREE.SphereGeometry( 1, 50, 50 );
-			var sphereMaterial = new THREE.MeshPhongMaterial({
-				map: new THREE.ImageUtils.loadTexture("/textures/monde.jpg"),
-				color: 0xaaaaaa,
-				specular: 0x333333,
-				shininess: 25
-			});
-			var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-			scene.add(sphere);
+			const geometry = new THREE.SphereGeometry(1, 50, 50);
+			const texture = new THREE.TextureLoader().load( 'textures/monde.jpg' );
+			const materialTex = new THREE.MeshBasicMaterial( { map: texture } );
+			const sphere = new THREE.Mesh( geometry, materialTex );
+			scene.add( sphere );
 			
 			//OrbitControls
 			const controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -48,6 +44,11 @@
 			scene.add( light );
 			
 			camera.position.z = 4;
+			
+			function LatLongToCart() {
+			
+			
+			}
 			
 			//animation
 			const animate = function () {
