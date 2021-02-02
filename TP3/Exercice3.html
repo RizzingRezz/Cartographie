@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" name='viewport' content='width=device-width, user-scalable=no'/>
+		<style>
+            body{
+                margin:0;
+                overflow:hidden;
+            }
+        </style>
+	</head>
+	<body>
+		<div id="container"></div>
+
+		<script src="https://threejs.org/build/three.js"></script>
+		<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		<script src="https://threejs.org//examples/js/loaders/GLTFLoader.js"></script>
+		<script type="text/javascript">
+		
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+			
+			//Création geometry and material Terre
+			var sphereGeometry = new THREE.SphereGeometry( 1, 50, 50 );
+			var sphereMaterial = new THREE.MeshPhongMaterial({
+				map: new THREE.ImageUtils.loadTexture("/textures/monde.jpg"),
+				color: 0xaaaaaa,
+				specular: 0x333333,
+				shininess: 25
+			});
+			var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+			scene.add(sphere);
+			
+			//OrbitControls
+			const controls = new THREE.OrbitControls( camera, renderer.domElement );
+			
+			 //Ambiante
+			var light = new THREE.AmbientLight( 0x888888 );
+			scene.add( light );
+
+			//Directionelle
+			var light = new THREE.DirectionalLight( 0xfdfcf0, 1 );
+			light.position.set(20,10,20);
+			scene.add( light );
+			
+			camera.position.z = 4;
+			
+			//animation
+			const animate = function () {
+				requestAnimationFrame( animate );
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
