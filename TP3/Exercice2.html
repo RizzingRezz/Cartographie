@@ -75,6 +75,10 @@
 
 				renderer.render( scene, camera );
 			};
+			window.addEventListener('deviceorientation', function(e) {
+				var rotation = e.gamma ? e.gamma * (Math.PI / 600) : 0;
+				sphere.rotation.y = rotation;
+			});
 
 			animate();
 		</script>
