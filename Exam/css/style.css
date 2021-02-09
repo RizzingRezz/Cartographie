@@ -1,0 +1,15 @@
+body
+{
+	color: white;
+	background-color : black;
+}
+
+p
+{
+	text-align: center;
+}
+
+#mapid 
+{
+	height: 800px;
+}
