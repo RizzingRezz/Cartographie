@@ -23,4 +23,9 @@ function maPosition(position)
 if(navigator.geolocation)
 	navigator.geolocation.getCurrentPosition(maPosition);
 
+window.addEventListener("deviceorientation", handleOrientation, true);
+function handleOrientation(event) {
+    compass.setAngle(event.alpha)
+}
+
 map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));
