@@ -14,8 +14,8 @@ aiguille.addEventListener('load', function() {
 window.addEventListener("deviceorientation", handleOrientation, true);
 
 function handleOrientation(event) {
-    canvasRotation(event.gamma)
-    svgRotation(event.gamma)
+    canvasRotation(event.alpha)
+    svgRotation(event.alpha)
 }
 
 function canvasRotation(degrees){
