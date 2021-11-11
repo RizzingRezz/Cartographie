@@ -11,6 +11,7 @@
 		<div id="informationposition"></div>
 		<h2>Exercice 3</h2>
 		<div id="infomouvement"></div>
+		<div id="infomouvement2"></div>
 		<h2>Exercice 4</h2>
 		<script>
 			function maPosition(position) 
@@ -51,12 +52,12 @@
 				var alpha = event.alpha;
 				var beta = event.beta;
 				var gamma = event.gamma;
-				document.getElementById("infomouvement").innerHTML += "<p>Alpha : " + alpha + "</p><p>Beta : " + beta + "</p><p>Gamma : " + gamma + "</p>"; 
+				document.getElementById("infomouvement").innerHTML = "<p>Alpha : " + alpha + "</p><p>Beta : " + beta + "</p><p>Gamma : " + gamma + "</p>"; 
 			}
 			if(window.DeviceOrientationEvent) {
 				window.addEventListener("deviceorientation", processorientation, false);
 			} else {
-				document.getElementById('infomouvement').innerHTML += '<p class="warning">Votre navigateur ne semble pas supporter <code>deviceorientation</code></p>';
+				document.getElementById('infomouvement').innerHTML = '<p class="warning">Votre navigateur ne semble pas supporter <code>deviceorientation</code></p>';
 			}
 			
 			function processmotion(event) 
@@ -64,12 +65,12 @@
 				var x = event.accelerationIncludingGravity.x;
 				var y = event.accelerationIncludingGravity.y;
 				var z = event.accelerationIncludingGravity.z;
-				document.getElementById("infomouvement").innerHTML += "<p>X : " + x + "</p><p>Y : " + y + "</p><p>Z : " + z + "</p>"; 
+				document.getElementById("infomouvement2").innerHTML = "<p>X : " + x + "</p><p>Y : " + y + "</p><p>Z : " + z + "</p>"; 
 			}
 			if(window.DeviceMotionEvent) {
 				window.addEventListener("devicemotion", processmotion, false);
 			} else {
-				document.getElementById('infomouvement').innerHTML += '<p class="warning">Votre navigateur ne semble pas supporter <code>devicemotion</code></p>';
+				document.getElementById('infomouvement2').innerHTML = '<p class="warning">Votre navigateur ne semble pas supporter <code>devicemotion</code></p>';
 			}
 		</script>
 	</body>
